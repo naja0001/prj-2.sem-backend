@@ -8,7 +8,7 @@ studentsRouter.get("/", (req, res) => {
   const queryString = /*sql*/ `
     SELECT * FROM students ORDER BY name;`;
 
-  connection.query(queryString, (error, results) => {
+  dbconfig.query(queryString, (error, results) => {
     if (error) {
       console.log(error);
       res.status(500).json({ error: "An error occurred" });
