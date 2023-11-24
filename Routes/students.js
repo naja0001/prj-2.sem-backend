@@ -1,6 +1,6 @@
 import { Router } from "express";
-import connection from "../database.js";
 import mysql from "mysql2";
+import dbConfig from "../db-connect.js";
 
 const studentsRouter = Router();
 
@@ -8,7 +8,7 @@ studentsRouter.get("/", (req, res) => {
   const queryString = /*sql*/ `
     SELECT * FROM students ORDER BY name;`;
 
-  dbconfig.query(queryString, (error, results) => {
+  dbConfig.query(queryString, (error, results) => {
     if (error) {
       console.log(error);
       res.status(500).json({ error: "An error occurred" });
@@ -26,7 +26,7 @@ studentsRouter.get("/:id", (req, res) => {
     WHERE id=?;`;
   const values = [id];
 
-  connection.query(queryString, values, (error, results) => {
+  dbConfig.query(queryString, values, (error, results) => {
     if (error) {
       console.log(error);
     } else {
@@ -46,7 +46,7 @@ studentsRouter.get("/:id/Attendance", (req, res) => {
 
   const values = [id];
 
-  connection.query(queryString, values, (error, results) => {
+  dbConfig.query(queryString, values, (error, results) => {
     if (error) {
       console.log(error);
     } else {
@@ -77,7 +77,7 @@ studentsRouter.post("/", (req, res) => {
     // Check if the custom ID already exists in the database
     const checkQuery = "SELECT id FROM students WHERE studentId = ?";
 
-    connection.query(checkQuery, [customId], (checkErr, checkResults) => {
+    dbConfig.query(checkQuery, [customId], (checkErr, checkResults) => {
       if (checkErr) {
         console.log(checkErr);
         return res
@@ -95,7 +95,7 @@ studentsRouter.post("/", (req, res) => {
       const insertQuery =
         "INSERT INTO students (studentId, name, firstName, lastName, email, gender, number) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-      connection.query(
+      dbConfig.query(
         insertQuery,
         [studentId, name, firstName, lastName, email, gender, number],
         (insertErr, result) => {
@@ -147,7 +147,7 @@ studentsRouter.put("/:id", (request, response) => {
       WHERE student.id = ?;
       `;
 
-    connection.query(
+    dbConfig.query(
       updateQuery,
       [studentId, name, firstName, lastName, email, gender, number],
       (updateErr) => {
@@ -180,7 +180,7 @@ studentsRouter.delete("/:id", (request, response) => {
       WHERE id = ?;
     `;
 
-    connection.query(deleteArtistQuery, [studentId], (deleteErr) => {
+    dbConfig.query(deleteArtistQuery, [studentId], (deleteErr) => {
       if (deleteErr) {
         console.error(deleteErr);
         response.status(500).json({ message: "Internal server error" });
