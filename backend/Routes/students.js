@@ -6,7 +6,7 @@ const studentsRouter = Router();
 
 studentsRouter.get("/", (req, res) => {
   const queryString = /*sql*/ `
-    SELECT * FROM students ORDER BY firstName;`;
+    SELECT * FROM students ORDER BY firstname;`;
 
   dbConfig.query(queryString, (error, results) => {
     if (error) {
@@ -55,135 +55,78 @@ studentsRouter.get("/:id/Attendance", (req, res) => {
   });
 });
 
-studentsRouter.post("/students", (req, res) => {
-  try {
-    const { name, firstname, lastname, email, gender, number } = req.body;
-    //firstname, lastname, email, gender, number, image
-    if (!firstname || !lastname || !email || !gender || !number || !image) {
-      return res.status(400).json({
-        error: "More info about student required, including customId",
-      });
-    }
+studentsRouter.post("/", (req, res) => {
+  const { firstname, lastname, email, gender, number, image } = req.body;
 
-    // Check if the custom ID already exists in the database
-    const checkQuery = "SELECT id FROM students WHERE studentId = ?";
+  // Validering af numerisk 'number'
+  const numericNumber = parseFloat(number);
 
-    dbConfig.query(checkQuery, [customId], (checkErr, checkResults) => {
-      if (checkErr) {
-        console.log(checkErr);
-        return res
-          .status(500)
-          .json({ error: "An error occurred while checking student" });
-      }
-
-      if (checkResults.length > 0) {
-        return res
-          .status(400)
-          .json({ error: "Student with custom ID already exists" });
-      }
-
-      // Create a new student in the database with the custom ID
-      const insertQuery =
-        "INSERT INTO students (studentId, name, firstName, lastName, email, gender, number) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-      dbConfig.query(
-        insertQuery,
-        [studentId, name, firstName, lastName, email, gender, number],
-        (insertErr, result) => {
-          if (insertErr) {
-            console.log(insertErr);
-            res
-              .status(500)
-              .json({ error: "An error occurred while creating this student" });
-          } else {
-            const newStudentId = result.insertId;
-            res.status(201).json({
-              id: newStudentId,
-              message: "Student created successfully",
-            });
-          }
-        }
-      );
+  if (isNaN(numericNumber)) {
+    return res.status(400).json({
+      error: "Invalid 'number' format. Please provide a valid number.",
     });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" });
   }
+
+  // Opret forbindelse til databasen og udfør indsættelsen af data
+  const insertQuery =
+    "INSERT INTO Students (`firstname`, `lastname`, `email`, `gender`, `number`, `image`) VALUES (?, ?, ?, ?, ?, ?)";
+  const values = [firstname, lastname, email, gender, number, image];
+
+  dbConfig.query(insertQuery, values, (err, data) => {
+    if (err) {
+      console.error(err);
+      return res
+        .status(500)
+        .json({ error: "An error occurred while creating the student" });
+    }
+    return res
+      .status(201)
+      .json({ message: "Student has been created successfully" });
+  });
 });
 
-studentsRouter.put("/:id", (request, response) => {
-  try {
-    // Udtræk opdaterede kunstneroplysninger fra anmodningens krop
-    const { studentId, name, firstName, lastName, email, gender, number } =
-      request.body;
+studentsRouter.delete("/:id", (req, res) => {
+  const studentid = req.params.id;
 
-    if (
-      !studentId ||
-      !name ||
-      !firstName ||
-      !lastName ||
-      !email ||
-      !gender ||
-      !number
-    ) {
-      return response
-        .status(400)
-        .json({ error: "more info about student is required" });
+  // Validering af studentId (her antages det, at studentId skal være en numerisk værdi)
+  if (!studentid || isNaN(studentid)) {
+    return res.status(400).json({ message: "Invalid student ID" });
+  }
+
+  const deleteQuery = "DELETE FROM students WHERE id = ?";
+
+  dbConfig.query(deleteQuery, [studentid], (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Failed to delete student" });
     }
 
-    // Opdater kunstneren i artists-tabellen
-    const updateQuery = /*sql*/ `
-      UPDATE artists
-      SET studentId =?, name=?, firstName=?, lastName=?, email=?, gender=?, number=?
-      WHERE student.id = ?;
-      `;
+    if (data.affectedRows === 0) {
+      return res.status(404).json({ message: "Student not found" });
+    }
 
-    dbConfig.query(
-      updateQuery,
-      [studentId, name, firstName, lastName, email, gender, number],
-      (updateErr) => {
-        if (updateErr) {
-          console.log(updateErr);
-          response.status(500).json({
-            error: "An error occurred while updating the student",
-          });
-        } else {
-          response.status(200).json({
-            artistId,
-            message: "student updated successfully",
-          });
-        }
-      }
-    );
-  } catch (error) {
-    console.error(error);
-    response.status(500).json({ message: "Internal server error" });
-  }
+    res.json({ message: "Student deleted successfully" });
+  });
 });
+//{ firstname, lastname, email, gender, number, image
+studentsRouter.put("/:id", (req, res) => {
+  const studentId = req.params.id;
+  const q =
+    "UPDATE students SET `firstname`= ?, `lastname`= ?, `email`= ?, `gender`= ?, `number`= ?, `image`= ? WHERE id =?";
 
-studentsRouter.delete("/:id", (request, response) => {
-  try {
-    const studentId = request.params.id;
+  const values = [
+    req.body.firstname,
+    req.body.lastname,
+    req.body.email,
+    req.body.gender,
+    req.body.number,
+    req.body.image,
+  ];
 
-    // Slet kunstneren fra artists-tabellen
-    const deleteArtistQuery = /*sql*/ `
-      DELETE FROM student
-      WHERE id = ?;
-    `;
-
-    dbConfig.query(deleteArtistQuery, [studentId], (deleteErr) => {
-      if (deleteErr) {
-        console.error(deleteErr);
-        response.status(500).json({ message: "Internal server error" });
-      } else {
-        // Hvis du vil slette eventuelle tilknyttede data, f.eks. sange eller albums, skal du håndtere det her.
-        response.json({ message: "Student deleted successfully" });
-      }
-    });
-  } catch (error) {
-    console.error(error);
-    response.status(500).json({ message: "Internal server error" });
-  }
+  dbConfig.query(q, [...values, studentId], (err, data) => {
+    if (err) return res.json(err);
+    return res.json("student has been updated successfully");
+  });
 });
 
 export default studentsRouter;
