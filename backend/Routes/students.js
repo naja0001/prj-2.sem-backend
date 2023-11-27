@@ -6,7 +6,7 @@ const studentsRouter = Router();
 
 studentsRouter.get("/", (req, res) => {
   const queryString = /*sql*/ `
-    SELECT * FROM students ORDER BY name;`;
+    SELECT * FROM students ORDER BY firstName;`;
 
   dbConfig.query(queryString, (error, results) => {
     if (error) {
@@ -55,20 +55,11 @@ studentsRouter.get("/:id/Attendance", (req, res) => {
   });
 });
 
-studentsRouter.post("/", (req, res) => {
+studentsRouter.post("/students", (req, res) => {
   try {
-    const { studentId, name, firstName, lastName, email, gender, number } =
-      req.body;
-
-    if (
-      !studentId ||
-      !name ||
-      !firstName ||
-      !lastName ||
-      !email ||
-      !gender ||
-      !number
-    ) {
+    const { name, firstname, lastname, email, gender, number } = req.body;
+    //firstname, lastname, email, gender, number, image
+    if (!firstname || !lastname || !email || !gender || !number || !image) {
       return res.status(400).json({
         error: "More info about student required, including customId",
       });

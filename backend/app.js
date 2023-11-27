@@ -1,16 +1,23 @@
 import express from "express";
+import dbConfig from "./db-connect.js";
 import cors from "cors";
+import studentsRouter from "./Routes/students.js";
+import TeacherRouter from "./Routes/Teacher.js";
 
 const app = express();
-const PORT = 5005;
 
+//by default we cant send any data to our express server, so we use
 app.use(express.json());
+//it allows us to send any json file using a client
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send("There we go");
+app.use("/students", studentsRouter);
+app.use("/Teacher", TeacherRouter);
+
+app.listen(5005, () => {
+  console.log("connected to backend");
 });
 
-app.listen(PORT, () => {
-  console.log(`Serveren Kører på http://localhost:${PORT}`);
+app.get("/", (req, res) => {
+  res.json("hello this is the backend");
 });
