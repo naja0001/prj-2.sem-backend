@@ -35,26 +35,6 @@ studentsRouter.get("/:id", (req, res) => {
   });
 });
 
-studentsRouter.get("/:id/Attendance", (req, res) => {
-  const id = req.params.id;
-
-  const queryString = /*sql*/ `
-    SELECT * FROM students, Attendance 
-    WHERE students.id=? AND
-    Attendance.id = students.id
-    ORDER BY students.name;`; // sql query
-
-  const values = [id];
-
-  dbConfig.query(queryString, values, (error, results) => {
-    if (error) {
-      console.log(error);
-    } else {
-      res.json(results);
-    }
-  });
-});
-
 studentsRouter.post("/", (req, res) => {
   const { firstname, lastname, email, gender, number, image } = req.body;
 
@@ -108,6 +88,7 @@ studentsRouter.delete("/:id", (req, res) => {
     res.json({ message: "Student deleted successfully" });
   });
 });
+
 //{ firstname, lastname, email, gender, number, image
 studentsRouter.put("/:id", (req, res) => {
   const studentId = req.params.id;

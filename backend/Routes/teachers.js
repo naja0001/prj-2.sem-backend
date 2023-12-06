@@ -2,9 +2,9 @@ import { Router } from "express";
 import mysql from "mysql2";
 import dbConfig from "../db-connect.js";
 
-const teacherRouter = Router();
+const teachersRouter = Router();
 
-teacherRouter.get("/", (req, res) => {
+teachersRouter.get("/", (req, res) => {
   const queryString = /*sql*/ `
     SELECT * FROM Teachers ORDER BY firstname;`;
 
@@ -18,7 +18,7 @@ teacherRouter.get("/", (req, res) => {
   });
 });
 
-teacherRouter.get("/:id", (req, res) => {
+teachersRouter.get("/:id", (req, res) => {
   const id = req.params.id;
   const queryString = /*sql*/ `
     SELECT * 
@@ -35,27 +35,7 @@ teacherRouter.get("/:id", (req, res) => {
   });
 });
 
-teacherRouter.get("/:id/Attendance", (req, res) => {
-  const id = req.params.id;
-
-  const queryString = /*sql*/ `
-    SELECT * FROM students, Attendance 
-    WHERE students.id=? AND
-    Attendance.id = students.id
-    ORDER BY students.name;`; // sql query
-
-  const values = [id];
-
-  dbConfig.query(queryString, values, (error, results) => {
-    if (error) {
-      console.log(error);
-    } else {
-      res.json(results);
-    }
-  });
-});
-
-teacherRouter.post("/", (req, res) => {
+teachersRouter.post("/", (req, res) => {
   const { firstname, lastname, email, number } = req.body;
   //firstname, lastname, email, number
   // Validering af numerisk 'number'
@@ -77,15 +57,15 @@ teacherRouter.post("/", (req, res) => {
       console.error(err);
       return res
         .status(500)
-        .json({ error: "An error occurred while creating the student" });
+        .json({ error: "An error occurred while creating the teacher" });
     }
     return res
       .status(201)
-      .json({ message: "Student has been created successfully" });
+      .json({ message: "teacher has been created successfully" });
   });
 });
 
-teacherRouter.delete("/:id", (req, res) => {
+teachersRouter.delete("/:id", (req, res) => {
   const teacherid = req.params.id;
 
   // Validering af studentId (her antages det, at studentId skal være en numerisk værdi)
@@ -109,7 +89,7 @@ teacherRouter.delete("/:id", (req, res) => {
   });
 });
 //{ firstname, lastname, email, gender, number, image
-teacherRouter.put("/:id", (req, res) => {
+teachersRouter.put("/:id", (req, res) => {
   const teacherId = req.params.id;
   const q =
     "UPDATE Teachers SET `firstname`= ?, `lastname`= ?, `email`= ?, `number`= ? WHERE id = ?";
@@ -130,4 +110,4 @@ teacherRouter.put("/:id", (req, res) => {
   });
 });
 
-export default teacherRouter;
+export default teachersRouter;
