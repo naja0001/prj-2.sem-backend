@@ -21,6 +21,51 @@ homeworkRouter.get("/", (req, res) => {
   });
 });
 
+// GET request to fetch a homework assignment by ID
+homeworkRouter.get("/:id", (req, res) => {
+  const students_id = req.params.id; // Get the ID from the request parameters
+
+  const queryString = `
+    SELECT * FROM Homework WHERE students_id= ?
+  `;
+
+  dbConfig.query(queryString, [students_id], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).json({
+        error: "An error occurred while fetching the homework assignment",
+      });
+    } else {
+      if (results.length > 0) {
+        // Homework assignment found, send it in the response
+        res.json(results[0]); // Assuming you expect only one assignment for the given ID
+      } else {
+        // No homework assignment found for the given ID
+        res.status(404).json({ message: "Homework assignment not found" });
+      }
+    }
+  });
+});
+
+homeworkRouter.get("/:studentsId/homework", (req, res) => {
+  const studentsId = req.params.studentsId;
+
+  const queryString = `
+    SELECT * FROM Homework WHERE students_id = ?
+  `;
+
+  dbConfig.query(queryString, [studentsId], (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).json({
+        error: "An error occurred while fetching homework assignments",
+      });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 homeworkRouter.post("/", (req, res) => {
   const { course_id, students_id, assignment_name, description, due_date } =
     req.body;
@@ -37,6 +82,34 @@ homeworkRouter.post("/", (req, res) => {
     description,
     due_date,
   ];
+
+  dbConfig.query(insertQuery, values, (error, results) => {
+    if (error) {
+      console.error(error);
+      res.status(500).json({
+        error: "An error occurred while creating a new homework assignment",
+      });
+    } else {
+      res
+        .status(201)
+        .json({ message: "Homework assignment created successfully" });
+    }
+  });
+});
+
+homeworkRouter.post("/:studentsId", (req, res) => {
+  const studentsId = req.params.studentsId;
+
+  // Extract assignment details from request body
+  const { assignment_name, description, due_date } = req.body;
+
+  // Insert the assignment into the database for the specified student
+  const insertQuery = `
+    INSERT INTO Homework (students_id, assignment_name, description, due_date)
+    VALUES (?, ?, ?, ?)
+  `;
+
+  const values = [studentId, assignment_name, description, due_date];
 
   dbConfig.query(insertQuery, values, (error, results) => {
     if (error) {

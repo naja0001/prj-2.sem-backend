@@ -4,6 +4,28 @@ import dbConfig from "../db-connect.js";
 
 const QuranProgressRouter = Router();
 
+QuranProgressRouter.get("/", (req, res) => {
+  const queryString = `
+    SELECT * FROM QuranProgress
+    ORDER BY students_id, completion_date DESC;
+  `;
+
+  dbConfig.query(queryString, (error, results) => {
+    if (error) {
+      console.error(error);
+      res
+        .status(500)
+        .json({ error: "An error occurred while fetching Quran progress" });
+    } else {
+      const formattedResults = results.map((progress) => ({
+        ...progress,
+        is_completed: !!progress.is_completed, // Converts 0/1 to boolean
+      }));
+      res.json(formattedResults);
+    }
+  });
+});
+
 QuranProgressRouter.get("/:id", (req, res) => {
   const studentsId = req.params.id;
 
