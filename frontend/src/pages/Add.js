@@ -2,28 +2,28 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../styles.css";
 
 const Add = () => {
-  const [student, setStudents] = useState({
+  const [student, setStudent] = useState({
     firstname: "",
     lastname: "",
     email: "",
     gender: "",
     number: null,
-    image: "",
   });
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setStudents((prev) => ({ ...prev, [e.target.firstname]: e.target.value }));
+    setStudent((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:2300/Students", student);
+      await axios.post("http://localhost:2300/students", student);
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -36,41 +36,40 @@ const Add = () => {
       <h1>Add New Student</h1>
       <input
         type="text"
-        placeholder="Students firstname"
-        name="firstname"
+        placeholder="Student firstname"
+        name="firsname"
         onChange={handleChange}
       />
       <textarea
-        rows={5}
         type="text"
-        placeholder="Student lastname"
+        placeholder="student lastname"
         name="lastname"
         onChange={handleChange}
       />
       <input
         type="text"
-        placeholder="students email"
+        placeholder="Student email"
         name="email"
         onChange={handleChange}
       />
+
+      <select name="gender" onChange={handleChange}>
+        <option value="">Select gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+
       <input
         type="number"
-        placeholder="Students number"
+        placeholder="Student number"
         name="number"
         onChange={handleChange}
       />
-      <input
-        type="text"
-        placeholder="students image"
-        name="image"
-        onChange={handleChange}
-      />
-
       <button className="formbutton" onClick={handleClick}>
         Add
       </button>
       {error && "Something went wrong!"}
-      <Link to="/">See all Students</Link>
+      <Link to="/">See all students</Link>
     </div>
   );
 };

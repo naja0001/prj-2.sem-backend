@@ -146,7 +146,7 @@ const Students = () => {
                 <p>Email: {student.email}</p>
                 <p>Gender: {student.gender}</p>
                 <span>Number: {student.number}</span>
-                <img src={student.image} alt="" className="student-img" />
+
                 {/* Save Changes button */}
 
                 <div>
@@ -157,7 +157,6 @@ const Students = () => {
                       <p>
                         Completion Date: {formatDate(progress.completion_date)}
                       </p>
-                      <p>Completed: {progress.is_completed ? "Yes" : "No"}</p>
                     </div>
                   ))}
                 </div>
@@ -223,19 +222,19 @@ const Students = () => {
                     />
                   </label>
                   <label>
-                    Description:
+                    Surah:
                     <input
                       type="text"
-                      value={formData.description}
-                      onChange={(e) => handleInputChange(e, "description")}
+                      value={formData.surah}
+                      onChange={(e) => handleInputChange(e, "surah")}
                     />
                   </label>
                   <label>
-                    Due Date:
+                    Date:
                     <input
                       type="date"
-                      value={formData.due_date}
-                      onChange={(e) => handleInputChange(e, "due_date")}
+                      value={formData.date}
+                      onChange={(e) => handleInputChange(e, "date")}
                     />
                   </label>
                   <button type="submit">Assign</button>

@@ -36,7 +36,7 @@ studentsRouter.get("/:id", (req, res) => {
 });
 
 studentsRouter.post("/", (req, res) => {
-  const { firstname, lastname, email, gender, number, image } = req.body;
+  const { firstname, lastname, email, gender, number } = req.body;
 
   // Validering af numerisk 'number'
   const numericNumber = parseFloat(number);
@@ -48,9 +48,10 @@ studentsRouter.post("/", (req, res) => {
   }
 
   // Opret forbindelse til databasen og udfør indsættelsen af data
+
   const insertQuery =
-    "INSERT INTO Students (`firstname`, `lastname`, `email`, `gender`, `number`, `image`) VALUES (?, ?, ?, ?, ?, ?)";
-  const values = [firstname, lastname, email, gender, number, image];
+    "INSERT INTO Students (`firstname`, `lastname`, `email`, `gender`, `number`) VALUES (?, ?, ?, ?, ?)";
+  const values = [firstname, lastname, email, gender, number];
 
   dbConfig.query(insertQuery, values, (err, data) => {
     if (err) {
@@ -93,7 +94,7 @@ studentsRouter.delete("/:id", (req, res) => {
 studentsRouter.put("/:id", (req, res) => {
   const studentId = req.params.id;
   const q =
-    "UPDATE students SET `firstname`= ?, `lastname`= ?, `email`= ?, `gender`= ?, `number`= ?, `image`= ? WHERE id =?";
+    "UPDATE students SET `firstname`= ?, `lastname`= ?, `email`= ?, `gender`= ?, `number`= ? WHERE id =?";
 
   const values = [
     req.body.firstname,
@@ -101,7 +102,6 @@ studentsRouter.put("/:id", (req, res) => {
     req.body.email,
     req.body.gender,
     req.body.number,
-    req.body.image,
   ];
 
   dbConfig.query(q, [...values, studentId], (err, data) => {
