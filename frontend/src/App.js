@@ -1,21 +1,23 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Add from "./pages/Add";
 import Students from "./pages/Students";
 import Update from "./pages/Update";
 import Sidebar from "./pages/Sidebar";
 import QuranLessonCalendar from "./pages/Calender";
-import "./sidebar.css";
-import "./styles.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="app">
+    <div className="container-fluid mt-5">
       <BrowserRouter>
-        <div className="container">
-          <Sidebar className="sidebar" />
-          <div className="main-content">
+        <div className="row">
+          <div className="col-lg-3 bg-dark py-4">
+            <Sidebar />
+          </div>
+          <div className="col-lg-9">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<QuranLessonCalendar />} />
               <Route path="/home" element={<Students />} />
               <Route path="/add" element={<Add />} />
               <Route path="/update/:id" element={<Update />} />
@@ -23,16 +25,9 @@ function App() {
             </Routes>
           </div>
         </div>
-        <div className="quran-calendar">
-          <QuranLessonCalendar />
-        </div>
       </BrowserRouter>
     </div>
   );
 }
 
 export default App;
-
-function Home() {
-  return <div></div>; // Empty component for the home page
-}

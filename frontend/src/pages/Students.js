@@ -91,7 +91,7 @@ const Students = () => {
       };
 
       await axios.post(
-        `http://localhost:2300/homework/${studentId}`, // Ensure the correct endpoint with the studentId
+        `http://localhost:2300/homework/${studentId}`,
         dataToInsert
       );
 
@@ -105,7 +105,7 @@ const Students = () => {
       // Fetch updated data or perform necessary actions
       // fetchData(); // Call your function to update data if needed
     } catch (error) {
-      console.error("Error inserting data:", error);
+      console.error("Error inserting data:", error.response);
     }
   };
 
@@ -222,10 +222,10 @@ const Students = () => {
                     />
                   </label>
                   <label>
-                    Surah:
+                    description:
                     <input
                       type="text"
-                      value={formData.surah}
+                      value={formData.description}
                       onChange={(e) => handleInputChange(e, "surah")}
                     />
                   </label>
@@ -233,8 +233,8 @@ const Students = () => {
                     Date:
                     <input
                       type="date"
-                      value={formData.date}
-                      onChange={(e) => handleInputChange(e, "date")}
+                      value={formData.due_date}
+                      onChange={(e) => handleInputChange(e, "due_date")}
                     />
                   </label>
                   <button type="submit">Assign</button>

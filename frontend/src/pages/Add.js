@@ -1,75 +1,105 @@
+import React, { useState } from "react";
 import axios from "axios";
-import React from "react";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "../styles.css";
 
 const Add = () => {
-  const [student, setStudent] = useState({
+  const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
     email: "",
     gender: "",
-    number: null,
+    number: "",
   });
-  const [error, setError] = useState(false);
 
-  const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setStudent((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:2300/students", student);
-      navigate("/");
-    } catch (err) {
-      console.log(err);
-      setError(true);
+      await axios.post("http://localhost:2300/students", formData);
+      // Handle success - redirect, show notification, etc.
+      console.log("Student added successfully!");
+    } catch (error) {
+      console.error("Error adding student:", error);
     }
   };
 
+  const handleInputChange = (e, field) => {
+    const value = e.target.value;
+    setFormData({
+      ...formData,
+      [field]: value,
+    });
+  };
+
   return (
-    <div className="form">
-      <h1>Add New Student</h1>
-      <input
-        type="text"
-        placeholder="Student firstname"
-        name="firsname"
-        onChange={handleChange}
-      />
-      <textarea
-        type="text"
-        placeholder="student lastname"
-        name="lastname"
-        onChange={handleChange}
-      />
-      <input
-        type="text"
-        placeholder="Student email"
-        name="email"
-        onChange={handleChange}
-      />
-
-      <select name="gender" onChange={handleChange}>
-        <option value="">Select gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-
-      <input
-        type="number"
-        placeholder="Student number"
-        name="number"
-        onChange={handleChange}
-      />
-      <button className="formbutton" onClick={handleClick}>
-        Add
-      </button>
-      {error && "Something went wrong!"}
-      <Link to="/">See all students</Link>
+    <div className="container mt-5">
+      <h2>Add Student</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="firstname" className="form-label">
+            First Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="firstname"
+            value={formData.firstname}
+            onChange={(e) => handleInputChange(e, "firstname")}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="lastname" className="form-label">
+            Last Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="lastname"
+            value={formData.lastname}
+            onChange={(e) => handleInputChange(e, "lastname")}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={formData.email}
+            onChange={(e) => handleInputChange(e, "email")}
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="gender" className="form-label">
+            Gender
+          </label>
+          <select
+            className="form-select"
+            id="gender"
+            value={formData.gender}
+            onChange={(e) => handleInputChange(e, "gender")}
+          >
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="number" className="form-label">
+            Phone Number
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="number"
+            value={formData.number}
+            onChange={(e) => handleInputChange(e, "number")}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Add Student
+        </button>
+      </form>
     </div>
   );
 };

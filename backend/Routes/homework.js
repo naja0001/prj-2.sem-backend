@@ -26,7 +26,7 @@ homeworkRouter.get("/:id", (req, res) => {
   const students_id = req.params.id; // Get the ID from the request parameters
 
   const queryString = `
-    SELECT * FROM Homework WHERE students_id= ?
+    SELECT * FROM Homework WHERE students_id = ?
   `;
 
   dbConfig.query(queryString, [students_id], (error, results) => {
@@ -38,30 +38,11 @@ homeworkRouter.get("/:id", (req, res) => {
     } else {
       if (results.length > 0) {
         // Homework assignment found, send it in the response
-        res.json(results[0]); // Assuming you expect only one assignment for the given ID
+        res.json(results); // Returning all assignments related to the students_id
       } else {
         // No homework assignment found for the given ID
         res.status(404).json({ message: "Homework assignment not found" });
       }
-    }
-  });
-});
-
-homeworkRouter.get("/:studentsId/homework", (req, res) => {
-  const studentsId = req.params.studentsId;
-
-  const queryString = `
-    SELECT * FROM Homework WHERE students_id = ?
-  `;
-
-  dbConfig.query(queryString, [studentsId], (error, results) => {
-    if (error) {
-      console.error(error);
-      res.status(500).json({
-        error: "An error occurred while fetching homework assignments",
-      });
-    } else {
-      res.json(results);
     }
   });
 });
@@ -97,7 +78,7 @@ homeworkRouter.post("/", (req, res) => {
   });
 });
 
-homeworkRouter.post("/:studentsId", (req, res) => {
+homeworkRouter.post("/:id", (req, res) => {
   const studentsId = req.params.studentsId;
 
   // Extract assignment details from request body
@@ -105,11 +86,11 @@ homeworkRouter.post("/:studentsId", (req, res) => {
 
   // Insert the assignment into the database for the specified student
   const insertQuery = `
-    INSERT INTO Homework (students_id, assignment_name, description, due_date)
+    INSERT INTO Homework (studentsId, assignment_name, description, due_date)
     VALUES (?, ?, ?, ?)
   `;
 
-  const values = [studentId, assignment_name, description, due_date];
+  const values = [studentsId, assignment_name, description, due_date];
 
   dbConfig.query(insertQuery, values, (error, results) => {
     if (error) {
