@@ -102,48 +102,27 @@ const Students = () => {
     return date.toLocaleDateString("en-US", options);
   };
 
+   const FilteredStudents = () => {
     const filteredStudents = students.filter((student) => {
-    const name = `${student.first_name} ${student.last_name}`.toLowerCase();
-    return (
-      name.includes(searchTerm.toLowerCase()) &&
-      (genderFilter === "" || student.gender === genderFilter)
-    );
-  });
+      const name = `${student.first_name} ${student.last_name}`.toLowerCase();
+      return (
+        name.includes(searchTerm.toLowerCase()) &&
+        (genderFilter === "" || student.gender === genderFilter)
+      );
+    });
+
+   
+
 
   return (
-    <div className="container mt-5">
-      <h2>List of Students</h2>
-      <div>
-        <input
-          type="text"
-          placeholder="Search by name..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <select
-          value={genderFilter}
-          onChange={(e) => setGenderFilter(e.target.value)}
-        >
-          <option value="">All</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </div>
-      <div className="row row-cols-1 row-cols-md-2 g-4">
+       <div className="row row-cols-1 row-cols-md-2 g-4">
         {filteredStudents.map((student, index) => (
           // Existing code for displaying students...
         ))}
       </div>
- 
-      <div className="row mt-5">
-        {/* Existing form code... */}
-      </div>
-    </div>
-  );
-};
+    );
+  };
 
-
-  return (
     <div className="container mt-5">
       <h2>List of Students</h2>
       <div className="row row-cols-1 row-cols-md-2 g-4">
