@@ -102,7 +102,7 @@ const Students = () => {
     return date.toLocaleDateString("en-US", options);
   };
 
-   const FilteredStudents = () => {
+  const FilteredStudents = ({ searchTerm, genderFilter }) => {
     const filteredStudents = students.filter((student) => {
       const name = `${student.first_name} ${student.last_name}`.toLowerCase();
       return (
@@ -111,103 +111,30 @@ const Students = () => {
       );
     });
 
-   
-
-
-  return (
-       <div className="row row-cols-1 row-cols-md-2 g-4">
+    return (
+      <div className="row row-cols-1 row-cols-md-2 g-4">
         {filteredStudents.map((student, index) => (
-          // Existing code for displaying students...
+          <div key={student.id} className="col">
+            <div className="card h-100">
+              <div className="card-body">{/* Display student details */}</div>
+            </div>
+          </div>
         ))}
       </div>
     );
   };
 
+  return (
     <div className="container mt-5">
       <h2>List of Students</h2>
-      <div className="row row-cols-1 row-cols-md-2 g-4">
-        {students.map((student, index) => (
-          <div key={student.id} className="col">
-            <div className="card h-100">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-md-4">
-                    <h2>Quran Progress:</h2>
-                    {quranProgress.map((progress, index) => (
-                      <div key={index}>
-                        <p>Chapter Number: {progress.chapter_number}</p>
-                        <p>
-                          Completion Date:{" "}
-                          {formatDate(progress.completion_date)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="col-md-4">
-                    <h2>Attendance:</h2>
-                    <div>
-                      <p>Attendance Date: ...</p>
-                      <p>Is Present: ...</p>
-                      <AttendanceButtons
-                        onSelect={(option) =>
-                          handleAttendanceSelect(option, index)
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-4">
-                    <h2>Hifdh homework</h2>
-                    <table>
-                      <tbody>
-                        <tr key={student.id}>
-                          <td>
-                            <div>
-                              {Array.isArray(studentHomework) &&
-                                studentHomework
-                                  .filter((hw) => hw.students_id === student.id)
-                                  .map((assignment) => (
-                                    <div key={assignment.homework_id}>
-                                      <p>Hifdh: {assignment.assignment_name}</p>
-                                      <p>
-                                        Description: {assignment.description}
-                                      </p>
-                                      <p>Date: {assignment.due_date}</p>
-                                      <GradeSelector
-                                        onGradeSelect={(grade) =>
-                                          setSelectedGrades(
-                                            (prevSelectedGrades) => ({
-                                              ...prevSelectedGrades,
-                                              [student.id]: grade,
-                                            })
-                                          )
-                                        }
-                                      />
-                                      {selectedGrades[student.id] && (
-                                        <p>
-                                          Selected Grade:{" "}
-                                          {selectedGrades[student.id]}
-                                        </p>
-                                      )}
-                                    </div>
-                                  ))}
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      {/* Add the form outside the students loop */}
+      <FilteredStudents searchTerm={""} genderFilter={""} />
+
+      {/* Form to assign new homework */}
       <div className="row mt-5">
         <div className="col">
           <div className="card">
             <div className="card-body">
-              <form>
+              <form onSubmit={(e) => handleSubmit(e /* pass student id */)}>
                 <h2>New Hifdh</h2>
                 <label>
                   Hifdh:
@@ -233,10 +160,8 @@ const Students = () => {
                     onChange={(e) => handleInputChange(e, "due_date")}
                   />
                 </label>
-                {/* Assuming onSubmit is used to submit the form */}
-                <button onClick={(e) => handleSubmit(e, students.id)}>
-                  Assign
-                </button>
+                {/* Submit button */}
+                <button type="submit">Assign</button>
               </form>
             </div>
           </div>
