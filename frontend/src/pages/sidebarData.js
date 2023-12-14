@@ -10,7 +10,7 @@ export const SidebarData = [
     link: "/Home",
   },
   {
-    title: "Mail",
+    title: "Students",
     icon: <MailSharpIcon />,
     link: "/Mail",
   },
