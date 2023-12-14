@@ -127,6 +127,94 @@ const Students = () => {
   };
 
   return (
+    <div className="container mt-5">
+      <h2>List of Students</h2>
+      <div className="row row-cols-1 row-cols-md-2 g-4">
+        {students.map((student) => (
+          <div key={student.id} className="col">
+            <div className="card h-100">
+              <div className="card-body">
+                {/* ... */}
+                <div className="row">
+                  <div className="col-md-4">
+                    <h2>Quran Progress:</h2>
+                    {/* Display student progress */}
+                    {/* Example: */}
+                    {quranProgress.map((progress, index) => (
+                      <div key={index}>
+                        <p>Chapter Number: {progress.chapter_number}</p>
+                        <p>
+                          Completion Date:{" "}
+                          {formatDate(progress.completion_date)}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="col-md-4">
+                    {/* Example usage of AttendanceButtons */}
+                    <h2>Attendance:</h2>
+                    <div>
+                      <p>Attendance Date: ...</p>
+                      <p>Is Present: ...</p>
+                      {/* Use AttendanceButtons component */}
+                      <AttendanceButtons
+                        onSelect={(option) =>
+                          handleAttendanceSelect(option, index)
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <h2>Hifdh homework</h2>
+                    <table>
+                      <tbody>
+                        <tr key={student.id}>
+                          <td>
+                            <div>
+                              {Array.isArray(studentHomework) &&
+                                studentHomework
+                                  .filter((hw) => hw.students_id === student.id)
+                                  .map((assignment) => (
+                                    <div key={assignment.homework_id}>
+                                      <p>Hifdh: {assignment.assignment_name}</p>
+                                      <p>
+                                        Description: {assignment.description}
+                                      </p>
+                                      <p>Date: {assignment.due_date}</p>
+                                      <GradeSelector
+                                        onGradeSelect={(grade) =>
+                                          handleGradeSelect(student.id, grade)
+                                        }
+                                      />
+                                      {selectedGrades[student.id] && (
+                                        <p>
+                                          Selected Grade:{" "}
+                                          {selectedGrades[student.id]}
+                                        </p>
+                                      )}
+                                    </div>
+                                  ))}
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                {/* ... */}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+export default Students;
+
+/*}
+
+  /*return (
     <div className="students-container">
       <h2>List of Students</h2>
       <div className="students-grid">
@@ -147,9 +235,9 @@ const Students = () => {
                 <p>Gender: {student.gender}</p>
                 <span>Number: {student.number}</span>
 
-                {/* Save Changes button */}
+                {/* Save Changes button */
 
-                <div>
+/*  <div>
                   <h2>Quran Progress:</h2>
                   {studentProgress.map((progress, index) => (
                     <div key={index}>
@@ -256,4 +344,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Students; */
