@@ -3,12 +3,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Add from "./pages/Add";
-import Students from "./pages/Students";
+
 import Update from "./pages/Update";
 import Sidebar from "./pages/Sidebar";
 import QuranLessonCalendar from "./pages/Calender";
 import StudentsList from "./pages/studentsList";
-
+import Homework from "./pages/Homework";
+import Students from "./pages/Students";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
               {/* Route for individual student details */}
               <Route path="/add" element={<Add />} />
               <Route path="/update/:id" element={<Update />} />
-              {/* Add other routes for different pages if needed */}
+              <Route path="/homework" element={<Homework />} />{" "}
+              <Route path="/students" element={<Students />} />{" "}
             </Routes>
           </div>
         </div>

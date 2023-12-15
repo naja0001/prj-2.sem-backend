@@ -86,7 +86,7 @@ homeworkRouter.post("/:id", (req, res) => {
 
   // Insert the assignment into the database for the specified student
   const insertQuery = `
-    INSERT INTO Homework (studentsId, assignment_name, description, due_date)
+    INSERT INTO Homework (students_id, assignment_name, description, due_date)
     VALUES (?, ?, ?, ?)
   `;
 
