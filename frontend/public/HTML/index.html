@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ibn-Amer-Institute</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300&family=Roboto+Slab:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="loader"></div>
+    <div id="root"></div>
+
+    <header class="header">
+      <nav>
+        <video autoplay loop muted plays-inline class="video">
+          <source src="/Images/IBN AMER INSTITUTE (2).mp4" type="video/mp4" />
+        </video>
+
+        <a href="index.html"><img src="/Images/logo2.png" /></a>
+
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="index.html">HJEM</a></li>
+            <li><a href="omos.html">OM OS</a></li>
+            <li>
+              <a href="#kurser">KURSER</a>
+              <ul class="dropdown">
+                <li><a href="udenadslæring.html">Udenadslæring</a></li>
+                <li><a href="tajweed.html">Tajweed</a></li>
+                <li><a href="ijazah.html">Ijazah</a></li>
+              </ul>
+            </li>
+            <li><a href="underviser.html">UNDERVISER</a></li>
+            <li><a href="elever.html">ELEVER</a></li>
+            <li><a href="kontaktos.html">KONTAKT OS</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+
+      <div class="text-box">
+        <img src="/Images/arabic-removebg-preview.png" alt="" />
+        <p>
+          "De bedste blandt jer (muslimer) er dem, der lærer Koranen og
+          underviser i den."
+        </p>
+        <a href="" class="btn">Tilmeld dig en introdag</a>
+      </div>
+      <div class="jump-arrow">
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <section class="about-us">
+      <div class="about-img">
+        <img src="/Images/tajweed1.jpg" alt="" />
+      </div>
+      <div class="text">
+        <h1>Hvem er Ibn Amer Institute?<img src="/Images/logo2.png" /></h1>
+        <hr />
+        <p>
+          Vi er en uddannelsesinstution der specialisere sig udenfor
+          reciitationsstile (qira'at) og koranens videnskaber. <br />
+          <br />
+          Vi specialisere os også indefor udenadslære af koranen, og arbejder
+          for at sprede koranens videnskaber vidt og bredt. <br />Ibn amer
+          Institute mellem eleven og undervisere er i fokus.
+        </p>
+      </div>
+    </section>
+
+    <section class="count" id="counters">
+      <div class="box-container" id="counter-wrapper">
+        <div class="box">
+          <i class="fa fa-graduation-cap"></i>
+          <div class="label2">
+            <h3><span data-count="20">0</span>+</h3>
+            <p>Hufadhs</p>
+          </div>
+        </div>
+        <div class="box">
+          <i class="fa fa-user"></i>
+          <div class="label2">
+            <h3><span data-count="100">0</span>+</h3>
+            <p>elever</p>
+          </div>
+        </div>
+        <div class="box">
+          <i class="fa fa-user"></i>
+          <div class="label2">
+            <h3><span data-count="3">0</span>+</h3>
+            <p>Ijazah</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="courses">
+      <h1>Kursus vi tilbyder</h1>
+      <p>Vi tilbyder 3 kurser, der henvender sig til alle aldre og niveauer.</p>
+
+      <div class="container">
+        <a href="udenadslæring.html" class="course_sprite" id="course1">
+          <img src="/Images/quran.jpg" />
+          <div class="label">
+            <h3>UDENADLÆRING</h3>
+          </div>
+        </a>
+
+        <a href="tajweed.html" class="course_sprite">
+          <img src="/Images/tajweed1.jpg" />
+          <div class="label">
+            <h3>ADVANCED TAJWEED</h3>
+          </div>
+        </a>
+
+        <a href="ijazah.html" class="course_sprite">
+          <img src="/Images/ijazah.jpg" />
+          <div class="label">
+            <h3>IJAZAH</h3>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!--
+    <section class="student_reviews">
+      <h1>Kommentar fra vores studerende</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur,<br />
+        adipisicing elit.
+      </p>
+
+      <div class="container">
+        <div class="review_sprite">
+          <img src="/Images/student1.png" />
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quam
+              repellendus quisquam maiores, at error optio minus nulla rem, ad
+              ullam voluptatibus cum nesciunt, velit libero a alias nihil fugit!
+            </p>
+            <h3>Mohammed Abdullahi</h3>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+          </div>
+        </div>
+        <div class="review_sprite">
+          <img src="/Images/student2.png" />
+          <div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quam
+              repellendus quisquam maiores, at error optio minus nulla rem, ad
+              ullam voluptatibus cum nesciunt, velit libero a alias nihil fugit!
+            </p>
+            <h3>Mariam Salad</h3>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+    <!--
+
+    <section class="courses" id="counters">
+      <div id="counter-wrapper">
+        <div class="course_sprite" id="counter">
+          <div class="label2">
+            <h3><span class="count" data-count="100">0</span></h3>
+            <p>Elever tilmeldt</p>
+          </div>
+        </div>
+        <div class="course_sprite" id="counter">
+          <div class="label2">
+            <h3><span class="count" data-count="17">0</span></h3>
+            <p>Hufadhs</p>
+          </div>
+        </div>
+        <div class="course_sprite" id="counter">
+          <div class="label2">
+            <h3><span class="count" data-count="20">0</span></h3>
+            <p>Antal nye elever hvert år</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    -->
+
+    <!-----FORLØB----->
+
+    <!--
+    <section class="profile-teachers">
+      <h1>Mød vores lærere</h1>
+      <div class="profile-card">
+        <div class="teachers">
+          <img src="/Images/student1.png" />
+          <h2>SHEIKH ASRAM</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+            delectus est ut. Natus totam quisquam, nostrum numquam nihil
+            accusantium quo pariatur.
+          </p>
+        </div>
+        <div class="teachers">
+          <img src="/Images/student1.png" />
+          <h2>FIRSTENAME LASTNAME</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+            delectus est ut. Natus totam quisquam, nostrum numquam nihil
+            accusantium quo pariatur.
+          </p>
+        </div>
+        <div class="teachers">
+          <img src="/Images/student1.png" />
+          <h2>FIRSTENAME LASTNAME</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+            delectus est ut. Natus totam quisquam, nostrum numquam nihil
+            accusantium quo pariatur.
+          </p>
+        </div>
+      </div>
+    </section>
+-->
+    <section class="footer">
+      <div class="footer-container">
+        <div class="footer-omos" id="footer-sprite">
+          <h4>Om os</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            dolorem aspernatur distinctio sint quo officia culpa necessitatibus!
+            Dolorem quas eveniet, rerum quos iste, aliquam illo temporibus nam
+            hic deserunt est.
+          </p>
+          <div class="footer-socials">
+            <li>
+              <a href=""><i class="fa fa-facebook-official"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fa fa-instagram"></i></a>
+            </li>
+          </div>
+        </div>
+        <div class="footer-kontaktos" id="footer-sprite">
+          <h4>Kontakt os</h4>
+          <ul>
+            <li>
+              <span> <i class="fa fa-map-marker"></i></span>
+              <p><a href="#">Hørkær 32, 2730 Herlev</a></p>
+            </li>
+            <li>
+              <span><i class="fa fa-envelope"></i></span>
+              <p><a href="#">IbnAmer@hotmail.com</a></p>
+            </li>
+            <li>
+              <span><i class="fa fa-phone"></i></span>
+              <p><a href="#">+45 00 00 00 00 </a></p>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-menu" id="footer-sprite">
+          <h4>Menu</h4>
+          <ul>
+            <li>
+              <a href="index.html"><i class="fa fa-chevron-right"></i>Hjem</a>
+            </li>
+            <li>
+              <a href="udenadslæring.html"
+                ><i class="fa fa-chevron-right"></i>Udenadslæring</a
+              >
+            </li>
+            <li>
+              <a href="tajweed.html"
+                ><i class="fa fa-chevron-right"></i>Tajweed</a
+              >
+            </li>
+            <li>
+              <a href="ijazah.html"
+                ><i class="fa fa-chevron-right"></i>ijazah</a
+              >
+            </li>
+            <li>
+              <a href="elever.html"
+                ><i class="fa fa-chevron-right"></i>Elever</a
+              >
+            </li>
+            <li>
+              <a href="omos.html"><i class="fa fa-chevron-right"></i>Om os</a>
+            </li>
+
+            <li>
+              <a href="kontaktos.html"
+                ><i class="fa fa-chevron-right"></i>Kontakt os</a
+              >
+            </li>
+            <li>
+              <a href="underviser.html"
+                ><i class="fa fa-chevron-right"></i>Underviser</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <script src="/JS/script.js"></script>
+
+    <!--
+
+    <section id="footer">
+      <img src="/Images/wave2.png" class="top-img" />
+      <div class="footer-info">
+        <div class="container">
+          <div class="footer-box">
+            <img src="/Images/logo.png" id="footer-img" />
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div class="footer-box">
+            <p><b>KONTAKT OS</b></p>
+            <p><i class="fa fa-map-marker"> Hørkær 32</i></p>
+            <p><i class="fa fa-phone"></i> +45000000</p>
+            <p><i class="fa fa-envelope"></i> IBN-AMER@hotmail.com</p>
+          </div>
+          <div class="footer-box">
+            <div class="icons">
+              <i class="fa fa-facebook-official"></i>
+              <i class="fa fa-instagram"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+
+
+    <!-----------------------JAVASCIPT FOR MENU----------------------------->
+    <script>
+      let navLinks = document.querySelector(".nav-links");
+
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+  </body>
+</html>

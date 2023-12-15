@@ -1,0 +1,167 @@
+:root {
+  --yellow: rgb(35, 109, 89);
+  --green: rgb(35, 109, 89);
+  --light-green: rgb(4, 167, 137);
+}
+
+.testimonial-area {
+  margin-top: -50px;
+  padding: 80px 0;
+  height: 120vh;
+  margin-bottom: 10%;
+}
+.section-header h4 {
+  color: var(--green);
+  font-weight: 600;
+}
+.section-header {
+  padding-bottom: 15px;
+}
+.section-header h2 {
+  font-weight: 700;
+}
+.section-header p {
+  color: #6f6b80;
+  width: 40%;
+  margin: auto;
+}
+
+.icon-area {
+  text-align: center;
+}
+.icon-area i {
+  color: var(--green);
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+.content p {
+  color: #6f6b80;
+  width: 60%;
+  margin: auto;
+}
+.content i {
+  color: rgb(249, 231, 26);
+}
+.person {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--green);
+  margin-top: 50px;
+}
+.person img {
+  width: 100%;
+}
+.content h5 {
+  font-weight: 900;
+  margin-top: 15px;
+}
+
+.carousel-indicators {
+  bottom: -80px;
+}
+.carousel-indicators [data-bs-target] {
+  width: 60px;
+  height: 10px;
+  background-color: var(--green);
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .section-header p {
+    width: 85%;
+  }
+  .content p {
+    width: 95%;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonial-area {
+    padding: 30px 0;
+  }
+  .section-header p {
+    width: 95%;
+  }
+  .content p {
+    width: 100%;
+  }
+  .icon-area i {
+    font-size: 50px;
+  }
+}
+
+.c-btn {
+  background-color: var(--green);
+}
+
+/* Your existing styles for testimonials go here */
+
+#testimonialCarousel {
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #fff;
+  background-color: var(--green);
+  border: none;
+  border-radius: 50%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--green);
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+.ijazah-sprite {
+  display: flex;
+  padding: 40px;
+  justify-content: center;
+  line-height: 2;
+  box-shadow: 5px 5px 20px 5px var(--green);
+  color: rgb(226, 226, 226);
+}
+
+.ijazah {
+  background-color: var(--green);
+}
+
+.ijazah-content {
+  flex-basis: 44%;
+}
+
+#ijazah-text {
+  color: var(--green);
+}
+
+@media (max-width: 1000px) {
+  .ijazah-sprite {
+    flex-direction: column;
+  }
+}
