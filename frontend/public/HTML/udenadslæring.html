@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ibn Amer Institute</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="/CSS/kurser.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300&family=Roboto+Slab:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="loader"></div>
+
+    <header class="header1">
+      <nav>
+        <img class="kurser-img" src="/Images/quran1.jpg" alt="" />
+
+        <a href="index.html"><img src="/Images/logo2.png" /></a>
+
+        <div class="nav-links" id="navLinkss">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="index.html">HJEM</a></li>
+            <li><a href="#om">OM OS</a></li>
+            <li>
+              <a href="#">KURSER</a>
+              <ul class="dropdown">
+                <li><a href="udenadslæring.html">Udenadslæring</a></li>
+                <li><a href="tajweed.html">Tajweed</a></li>
+                <li><a href="ijazah.html">Ijazah</a></li>
+              </ul>
+            </li>
+            <li><a href="underviser.html">UNDERVISER</a></li>
+            <li><a href="#elever">ELEVER</a></li>
+            <li><a href="kontaktos.html">KONTAKT OS</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+
+      <div class="text-box1">
+        <h1>Udenadslæring</h1>
+        <p>
+          "Vi tilbyder kuser, der henvender sig til alle aldre og niveauer."
+        </p>
+      </div>
+    </header>
+
+    <!-- Swiper 
+    <div class="swiper mySwiper">
+      <h1>Forløb vi tilbyder</h1>
+      <p>
+        Linjen af udenadlære af koranen har tre forløb, der henvender sig til
+        alle aldre og niveauer.
+      </p>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <h3>5-års forløb</h3>
+          <p>
+            5-år forløbet er forløbet hvor eleven lærer 2 ajaa'(2 dele)(dele af
+            30 dele af koranen) <br />
+            i det første år, 5 ajzaa' det andet år, 10 ajzaa' det tredje år,<br />
+            18 ajzaa' det fjerde år og fuldføre udenadlæren af hele koranene det
+            femte år.
+          </p>
+        </div>
+        <div class="swiper-slide">
+          <h3>3-års forløb</h3>
+          <p>
+            I 3 års forløbet et målet at lære koranen udenad, <br />ved at lære
+            7 ajaa' det første år, 18 ajzaa' det andet år <br />og fulføreså
+            memoreringen af resten af koranen i tredje år.
+          </p>
+        </div>
+        <div class="swiper-slide">
+          <h3>1.5-års forløb</h3>
+          <p>
+            Her er målet at færdiggøre memoreringen af koranen på 1.5år,<br />
+            hvor man memorerer 2 ajaa' hver måned.
+          </p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    -->
+
+    <section class="courses" id="cards" onclick="toggleCourseBody()">
+      <h1>Udenadslæring</h1>
+      <p>Linjer for udenadslære</p>
+
+      <div class="container">
+        <div class="course_sprite" id="course1">
+          <img src="/Images/quran1222.jpg" />
+          <div class="label">
+            <h2>1.5-års forløb</h2>
+          </div>
+          <div class="course_body">
+            <div class="course_content">
+              <h2>1.5-års forløb</h2>
+              <p>
+                Her er målet at færdiggøre memoreringen af koranen på 1.5år,<br />
+                hvor man memorerer 2 ajaa' hver måned.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="course_sprite">
+          <img src="/Images/quran1001.jpg" />
+          <div class="label">
+            <h2>3-års forløb</h2>
+          </div>
+          <div class="course_body">
+            <div class="course_content">
+              <h2>3-års forløb</h2>
+              <p>
+                I 3 års forløbet et målet at lære koranen udenad, <br />ved at
+                lære 7 ajaa' det første år, 18 ajzaa' det andet år <br />og
+                fulføreså memoreringen af resten af koranen i tredje år.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="course_sprite">
+          <img src="/Images/quran11001.jpg" />
+          <div class="label">
+            <h2>5-års forløb</h2>
+          </div>
+          <div class="course_body">
+            <div class="course_content">
+              <h2>5-års forløb</h2>
+              <p>
+                5-år forløbet er forløbet hvor eleven lærer 2 ajaa'(2 dele)(dele
+                af 30 dele af koranen) <br />
+                i det første år, 5 ajzaa' det andet år, 10 ajzaa' det tredje
+                år,<br />
+                18 ajzaa' det fjerde år og fuldføre udenadlæren af hele koranene
+                det femte år.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      <div class="course-text">
+        <h3>Lorem ipsum dolor sit amet.</h3>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
+        suscipit nam saepe, ab rem vel earum animi ipsum fugit necessitatibus
+        nihil ipsam doloribus, quo assumenda. Adipisci amet minus enim expedita?
+      </div>
+      -->
+    </section>
+
+    <section class="text-udenads">
+      <p>
+        Eleven der har færdiggjort memorering af af koranen skal læse hele
+        koranen for underviseren adskillige gange, så det memoreret bliver
+        stadfæstet i hukommelsen.<br />
+        Når eleven har reiteret hele koranen for underviseren adskillige gange,
+        vil eleven nu forskønne recitationen med underviseren, hvor recitation
+        rettes og i henhold til de velkendte recitationsregler og metoder.
+      </p>
+    </section>
+    <!--
+    <section class="">
+      <div>
+        <img src="/Images/quran.jpg" alt="" />
+      </div>
+     
+    </section>
+     -->
+
+    <!--
+    <section class="courses">
+      <h1>Forløb vi tilbyder</h1>
+      <p>
+        Linjen af udenadlære af koranen har tre forløb, der henvender sig til
+        alle aldre og niveauer.
+      </p>
+
+      <div class="course_container">
+        <div class="course_sprite">
+          <h3>5-års forløb</h3>
+          <p>
+            5-år forløbet er forløbet hvor eleven lærer 2 ajaa'(2 dele)(dele af
+            30 dele af koranen) <br />
+            i det første år, 5 ajzaa' det andet år, 10 ajzaa' det tredje år,<br />
+            18 ajzaa' det fjerde år og fuldføre udenadlæren af hele koranene det
+            femte år.
+          </p>
+        </div>
+        <div class="course_sprite">
+          <h3>3-års forløb</h3>
+          <p>
+            I 3 års forløbet et målet at lære koranen udenad, <br />ved at lære
+            7 ajaa' det første år, 18 ajzaa' det andet år <br />og fulføreså
+            memoreringen af resten af koranen i tredje år.
+          </p>
+        </div>
+        <div class="course_sprite">
+          <h3>1.5-års forløb</h3>
+          <p>
+            Her er målet at færdiggøre memoreringen af koranen på 1.5år,<br />
+            hvor man memorerer 2 ajaa' hver måned.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    -->
+
+    <section class="footer">
+      <div class="footer-container">
+        <div class="footer-omos" id="footer-sprite">
+          <h4>Om os</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            dolorem aspernatur distinctio sint quo officia culpa necessitatibus!
+            Dolorem quas eveniet, rerum quos iste, aliquam illo temporibus nam
+            hic deserunt est.
+          </p>
+          <div class="footer-socials">
+            <li>
+              <a href=""><i class="fa fa-facebook-official"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fa fa-instagram"></i></a>
+            </li>
+          </div>
+        </div>
+        <div class="footer-kontaktos" id="footer-sprite">
+          <h4>Kontakt os</h4>
+          <ul>
+            <li>
+              <span> <i class="fa fa-map-marker"></i></span>
+              <p><a href="#">Hørkær 32, 2730 Herlev</a></p>
+            </li>
+            <li>
+              <span><i class="fa fa-envelope"></i></span>
+              <p><a href="#">IbnAmer@hotmail.com</a></p>
+            </li>
+            <li>
+              <span><i class="fa fa-phone"></i></span>
+              <p><a href="#">+45 00 00 00 00 </a></p>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-menu" id="footer-sprite">
+          <h4>Menu</h4>
+          <ul>
+            <li>
+              <a href="index.html"><i class="fa fa-chevron-right"></i>Hjem</a>
+            </li>
+            <li>
+              <a href="udenadslæring.html"
+                ><i class="fa fa-chevron-right"></i>Udenadslæring</a
+              >
+            </li>
+            <li>
+              <a href="tajweed.html"
+                ><i class="fa fa-chevron-right"></i>Tajweed</a
+              >
+            </li>
+            <li>
+              <a href="ijazah.html"
+                ><i class="fa fa-chevron-right"></i>ijazah</a
+              >
+            </li>
+            <li>
+              <a href="elever.html"
+                ><i class="fa fa-chevron-right"></i>Elever</a
+              >
+            </li>
+            <li>
+              <a href="omos.html"><i class="fa fa-chevron-right"></i>Om os</a>
+            </li>
+
+            <li>
+              <a href="kontaktos.html"
+                ><i class="fa fa-chevron-right"></i>Kontakt os</a
+              >
+            </li>
+            <li>
+              <a href="underviser.html"
+                ><i class="fa fa-chevron-right"></i>Underviser</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <script src="/JS/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      let navLinks = document.querySelector("#navLinkss");
+
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+
+      var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2,
+          slideShadows: true,
+        },
+        loop: true,
+      });
+    </script>
+  </body>
+</html>

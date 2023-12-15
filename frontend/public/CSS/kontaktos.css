@@ -1,0 +1,253 @@
+:root {
+  --yellow: rgb(35, 109, 89);
+  --green: rgb(35, 109, 89);
+  --light-green: rgb(4, 167, 137);
+}
+
+.contact-bg {
+  margin-top: 30px;
+  height: 40vh;
+  text-align: center;
+  color: #000000;
+}
+.contact-bg h3 {
+  font-size: 40px;
+}
+.contact-bg h2 {
+  font-size: 3rem;
+  padding: 0.4rem 0;
+  letter-spacing: 4px;
+}
+
+.text {
+  font-weight: 300;
+  opacity: 0.9;
+}
+.contact-bg .text {
+  margin: 1.6rem 0;
+}
+.contact-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  max-width: 1320px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 40px;
+  gap: 100px;
+}
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin: 2rem 0;
+  text-align: center;
+  padding: 2rem 0;
+}
+.contact-info span {
+  display: block;
+}
+.contact-info div {
+  margin: 0.8rem 0;
+  padding: 1rem;
+}
+.contact-info span .fa {
+  font-size: 2rem;
+  padding-bottom: 0.9rem;
+  color: var(--green);
+}
+.contact-info div span:nth-child(2) {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.contact-info .text {
+  padding-top: 0.4rem;
+}
+.contact-form {
+  padding: 2rem 0;
+  border-top: 1px solid #000000;
+  align-items: center;
+}
+.contact-form form {
+  padding-bottom: 1rem;
+}
+.form-control {
+  width: 100%;
+  border: 1.5px solid #c7c7c7;
+  border-radius: 5px;
+  padding: 0.7rem;
+  margin: 0.6rem 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  outline: 0;
+}
+.form-control:focus {
+  box-shadow: 0 0 6px -3px rgba(48, 48, 48, 1);
+}
+.contact-form form div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0.6rem;
+}
+.send-btn {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #000000;
+  background: var(--light-green);
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.send-btn:hover {
+  opacity: 0.8;
+}
+.contact-form > div img {
+  width: 85%;
+}
+.contact-form > div {
+  margin: 0 auto;
+  text-align: center;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+}
+.social-links a {
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.4rem;
+  transition: all 0.4s ease;
+}
+.social-links a:hover {
+  color: var(--green);
+  border-color: var(--green);
+}
+/* Your existing styles */
+
+/* Media query for screens larger than 768px */
+@media screen and (min-width: 768px) {
+  .contact-bg .text {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Media query for screens larger than 992px */
+@media screen and (min-width: 992px) {
+  .contact-bg .text {
+    width: 50%;
+  }
+}
+
+/* 
+:root {
+  --yellow: rgb(35, 109, 89);
+  --green: rgb(35, 109, 89);
+  --light-green: rgb(4, 167, 137);
+}
+
+.contact {
+  min-height: 100vh;
+  background-color: rgb(255, 255, 255);
+  padding: 50px;
+  text-align: center;
+}
+
+.contact-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contact-container h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: rgb(0, 0, 0);
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20%;
+}
+
+.contact-form {
+  text-align: left;
+}
+
+.contact-form h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: rgb(0, 0, 0);
+}
+
+.form-group {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group input::placeholder,
+textarea::placeholder {
+  color: white;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--green);
+  color: aliceblue;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 8px #bbb;
+}
+
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--light-green);
+  color: #bbb;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--green);
+}
+
+.contact-info {
+  text-align: left;
+  justify-content: center;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.contact-info i {
+  color: #000000;
+  margin-right: 10px;
+}
+*/

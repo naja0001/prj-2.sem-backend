@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ibn Amer Institute</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="/CSS/kurser.css" />
+    <link rel="stylesheet" href="/CSS/elever.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300&family=Roboto+Slab:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="loader"></div>
+
+    <header class="header1">
+      <nav>
+        <img class="kurser-img" src="/Images/quran1.jpg" alt="" />
+
+        <a href="index.html"><img src="/Images/logo2.png" /></a>
+
+        <div class="nav-links" id="navLinkss">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="index.html">HJEM</a></li>
+            <li><a href="#om">OM OS</a></li>
+            <li>
+              <a href="#">KURSER</a>
+              <ul class="dropdown">
+                <li><a href="udenadslæring.html">Udenadslæring</a></li>
+                <li><a href="tajweed.html">Tajweed</a></li>
+                <li><a href="ijazah.html">Ijazah</a></li>
+              </ul>
+            </li>
+            <li><a href="underviser.html">UNDERVISER</a></li>
+            <li><a href="elever.html">ELEVER</a></li>
+            <li><a href="kontaktos.html">KONTAKT OS</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+
+      <div class="text-box1">
+        <h1>Tajweed</h1>
+        <p>
+          "Vi tilbyder kuser, der henvender sig til alle aldre og niveauer."
+        </p>
+      </div>
+    </header>
+
+    <!-- Swiper 
+    <div class="swiper mySwiper">
+      <h1>Forløb vi tilbyder</h1>
+      <p>
+        Linjen af udenadlære af koranen har tre forløb, der henvender sig til
+        alle aldre og niveauer.
+      </p>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <h3>5-års forløb</h3>
+          <p>
+            5-år forløbet er forløbet hvor eleven lærer 2 ajaa'(2 dele)(dele af
+            30 dele af koranen) <br />
+            i det første år, 5 ajzaa' det andet år, 10 ajzaa' det tredje år,<br />
+            18 ajzaa' det fjerde år og fuldføre udenadlæren af hele koranene det
+            femte år.
+          </p>
+        </div>
+        <div class="swiper-slide">
+          <h3>3-års forløb</h3>
+          <p>
+            I 3 års forløbet et målet at lære koranen udenad, <br />ved at lære
+            7 ajaa' det første år, 18 ajzaa' det andet år <br />og fulføreså
+            memoreringen af resten af koranen i tredje år.
+          </p>
+        </div>
+        <div class="swiper-slide">
+          <h3>1.5-års forløb</h3>
+          <p>
+            Her er målet at færdiggøre memoreringen af koranen på 1.5år,<br />
+            hvor man memorerer 2 ajaa' hver måned.
+          </p>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    -->
+
+    <section class="info">
+      <h1>Opnå Tajweed-færdigheder</h1>
+      <p>
+        Vores Tajweed-kursus er skræddersyet til både søstre og brødre, og det
+        giver dig mulighed for at studere Tajweed på en bekvem og tilgængelig
+        måde. Uanset om du er nybegynder inden for Tajweed eller ønsker at
+        forfine dine eksisterende færdigheder, tilbyder vores kurser omfattende
+        og interaktive lektioner, der sikrer en grundig uddannelse.
+      </p>
+      <div class="info_container">
+        <div class="info_sprite">
+          <h3>Hvad du lære under tajweed kurset</h3>
+          <ul>
+            <li>Makharij af Huruf, Artikulationspunkter for Bogstaver</li>
+            <li>Kendskab til Sifaat.</li>
+            <li>Viden og regler for Tajweed</li>
+            <li>Anvendelse af Tajweed (Implementering).</li>
+            <li>
+              Praktisk træning med læreren, hvor læren vil udtale, og eleven vil
+              gentage efter.
+            </li>
+          </ul>
+        </div>
+
+        <div class="info_sprite" id="info_2">
+          <h3>Løft din quran recitation til det næste niveau</h3>
+          <p>Tilmeld dig nu og oplev fordelene ved at lære Tajweed.</p>
+          <a href="" id="course-btn" class="btn">Tilmeld dig her</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="testimonial-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="section-header text-center">
+              <h4>Anmeldelser</h4>
+              <h2>Kommentar fra eleverne</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Quaerat at animi unde, et, obcaecati eius.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-bs-ride="true"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="icon-area">
+                    <i class="fa fa-comments"></i>
+                  </div>
+                  <div class="content text-center">
+                    <div class="person">
+                      <img src="/Images/student1.png" alt="" />
+                    </div>
+                    <h5>Mohammed Abdullahi</h5>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Suscipit reiciendis necessitatibus laborum numquam
+                      consequuntur possimus magnam expedita ipsam illum
+                      voluptatem quia assumenda placeat, at asperiores vitae
+                      obcaecati. Reprehenderit nesciunt voluptatem excepturi,
+                      libero ipsum tempora perspiciatis.
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="icon-area">
+                    <i class="fa fa-comments"></i>
+                  </div>
+                  <div class="content text-center">
+                    <div class="person">
+                      <img src="/Images/student1.png" alt="" />
+                    </div>
+                    <h5>Mariam Salad</h5>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Suscipit reiciendis necessitatibus laborum numquam
+                      consequuntur possimus magnam expedita ipsam illum
+                      voluptatem quia assumenda placeat, at asperiores vitae
+                      obcaecati. Reprehenderit nesciunt voluptatem excepturi,
+                      libero ipsum tempora perspiciatis.
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="icon-area">
+                    <i class="fa fa-comments"></i>
+                  </div>
+                  <div class="content text-center">
+                    <div class="person">
+                      <img src="/Images/student2.png" alt="" />
+                    </div>
+                    <h5>Fatima Said</h5>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Suscipit reiciendis necessitatibus laborum numquam
+                      consequuntur possimus magnam expedita ipsam illum
+                      voluptatem quia assumenda placeat, at asperiores vitae
+                      obcaecati. Reprehenderit nesciunt voluptatem excepturi,
+                      libero ipsum tempora perspiciatis.
+                    </p>
+                  </div>
+                </div>
+                <a
+                  class="carousel-control-prev"
+                  href="#carouselExampleIndicators"
+                  role="button"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    class="carousel-control-prev-icon c-btn"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Previous</span>
+                </a>
+                <!-- Next Button -->
+                <a
+                  class="carousel-control-next"
+                  href="#carouselExampleIndicators"
+                  role="button"
+                  data-bs-slide="next"
+                >
+                  <span
+                    class="carousel-control-next-icon c-btn"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="visually-hidden">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="footer">
+      <div class="footer-container">
+        <div class="footer-omos" id="footer-sprite">
+          <h4>Om os</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+            dolorem aspernatur distinctio sint quo officia culpa necessitatibus!
+            Dolorem quas eveniet, rerum quos iste, aliquam illo temporibus nam
+            hic deserunt est.
+          </p>
+          <div class="footer-socials">
+            <li>
+              <a href=""><i class="fa fa-facebook-official"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fa fa-instagram"></i></a>
+            </li>
+          </div>
+        </div>
+        <div class="footer-kontaktos" id="footer-sprite">
+          <h4>Kontakt os</h4>
+          <ul>
+            <li>
+              <span> <i class="fa fa-map-marker"></i></span>
+              <p><a href="#">Hørkær 32, 2730 Herlev</a></p>
+            </li>
+            <li>
+              <span><i class="fa fa-envelope"></i></span>
+              <p><a href="#">IbnAmer@hotmail.com</a></p>
+            </li>
+            <li>
+              <span><i class="fa fa-phone"></i></span>
+              <p><a href="#">+45 00 00 00 00 </a></p>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-menu" id="footer-sprite">
+          <h4>Menu</h4>
+          <ul>
+            <li>
+              <a href="index.html"><i class="fa fa-chevron-right"></i>Hjem</a>
+            </li>
+            <li>
+              <a href="udenadslæring.html"
+                ><i class="fa fa-chevron-right"></i>Udenadslæring</a
+              >
+            </li>
+            <li>
+              <a href="tajweed.html"
+                ><i class="fa fa-chevron-right"></i>Tajweed</a
+              >
+            </li>
+            <li>
+              <a href="ijazah.html"
+                ><i class="fa fa-chevron-right"></i>ijazah</a
+              >
+            </li>
+            <li>
+              <a href="elever.html"
+                ><i class="fa fa-chevron-right"></i>Elever</a
+              >
+            </li>
+            <li>
+              <a href="omos.html"><i class="fa fa-chevron-right"></i>Om os</a>
+            </li>
+
+            <li>
+              <a href="kontaktos.html"
+                ><i class="fa fa-chevron-right"></i>Kontakt os</a
+              >
+            </li>
+            <li>
+              <a href="underviser.html"
+                ><i class="fa fa-chevron-right"></i>Underviser</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    <section class="">
+      <div>
+        <img src="/Images/quran.jpg" alt="" />
+      </div>
+     
+    </section>
+     -->
+
+    <!--
+
+    <section class="courses">
+      <h1>Forløb vi tilbyder</h1>
+      <p>
+        Linjen af udenadlære af koranen har tre forløb, der henvender sig til
+        alle aldre og niveauer.
+      </p>
+
+      <div class="course_container">
+        <div class="course_sprite">
+          <h3>5-års forløb</h3>
+          <p>
+            5-år forløbet er forløbet hvor eleven lærer 2 ajaa'(2 dele)(dele af
+            30 dele af koranen) <br />
+            i det første år, 5 ajzaa' det andet år, 10 ajzaa' det tredje år,<br />
+            18 ajzaa' det fjerde år og fuldføre udenadlæren af hele koranene det
+            femte år.
+          </p>
+        </div>
+        <div class="course_sprite">
+          <h3>3-års forløb</h3>
+          <p>
+            I 3 års forløbet et målet at lære koranen udenad, <br />ved at lære
+            7 ajaa' det første år, 18 ajzaa' det andet år <br />og fulføreså
+            memoreringen af resten af koranen i tredje år.
+          </p>
+        </div>
+        <div class="course_sprite">
+          <h3>1.5-års forløb</h3>
+          <p>
+            Her er målet at færdiggøre memoreringen af koranen på 1.5år,<br />
+            hvor man memorerer 2 ajaa' hver måned.
+          </p>
+        </div>
+      </div>
+    </section>
+  -->
+    <script>
+      let navLinks = document.querySelector(".nav-links");
+
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/JS/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>
